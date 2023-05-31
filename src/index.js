@@ -6,9 +6,9 @@ import connectDB from "./db/mongoose.js";
 dotenv.config();
 
 //import Routes 
-import {AdminRouter} from './routes';
-import {EmployeeRouter} from './routes';
-import {HrRouter} from './routes'; 
+import {AdminRouter} from './routes/index.js';
+import {EmployeeRouter} from './routes/index.js';
+import {HrRouter} from './routes/index.js'; 
 
 //connect to DB
 connectDB();
@@ -33,8 +33,6 @@ app.use((req, res, next) => {
 app.use("/admin/", AdminRouter);
 app.use("/employee/", EmployeeRouter);
 app.use("/hr/", HrRouter); 
-
-//app.use('/api/posts',postRoute);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () =>
